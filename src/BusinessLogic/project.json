@@ -1,0 +1,15 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "DataAccess": "1.0.0-*",
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    }
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {}
+  }
+}
