@@ -72,7 +72,8 @@ namespace BusinessLogic.Services
                 {
                     Message = t.Message,
                     UserEmail = t.Email,
-                    UserName = t.Name
+                    UserName = t.Name,
+                    Time = t.Date
                 }).ToArray();
                 return new ServiceResponse<UserTicket[]>(models);
             }

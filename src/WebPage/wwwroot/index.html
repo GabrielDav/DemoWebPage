@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo app</title>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="styles/page.css" rel="stylesheet"/>
+    
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="scripts/app/app.js"></script>
+    <script type="text/javascript" src="scripts/app/routes.js"></script>
+    <script type="text/javascript" src="scripts/app/services/ApiService.js"></script>
+    <script type="text/javascript" src="scripts/app/controllers/HeaderController.js"></script>
+    <script type="text/javascript" src="scripts/app/controllers/TicketController.js"></script>
+    <script type="text/javascript" src="scripts/app/controllers/TicketsListController.js"></script>
+</head>
+<body ng-app="app">
+ <nav class="navbar navbar-default navbar-static-top" ng-controller="HeaderController as ctrl">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Demo App</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: ctrl.isActive('/contact-us') || ctrl.isActive('/') }"><a href="#contact-us">Contact Us</a></li>
+                <li ng-class="{ active: ctrl.isActive('/tickets') }"><a href="#tickets">Tickets</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div ng-view></div>
+</body>
+</html>

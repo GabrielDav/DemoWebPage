@@ -14,8 +14,8 @@ namespace WebPage
         /// </summary>
         public static void ConfigureMapper(IMapperConfigurationExpression config)
         {
-            config.CreateMap<UserTicket, UserTicketModel>();
-            config.CreateMap<UserTicketModel, UserTicket>();
+            config.CreateMap<UserTicket, UserTicketResponseModel>();
+            config.CreateMap<UserTicketRequestModel, UserTicket>();
         }
     }
 }

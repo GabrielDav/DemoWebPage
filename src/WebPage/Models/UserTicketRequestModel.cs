@@ -2,7 +2,7 @@
 
 namespace WebPage.Models
 {
-    public class UserTicketModel
+    public class UserTicketRequestModel
     {
         [StringLength(255, MinimumLength = 3)]
         public string UserEmail { get; set; }

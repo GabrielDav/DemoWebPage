@@ -1,0 +1,39 @@
+﻿<div class="container">
+
+    <!-- Due to my time constraints, client side validation is not complete. Additionally,
+    error feedback, loader animation, and many more things should be added to make this page production quality level.
+    However, those are outside of the scope of this demo. -->
+    <div class="jumbotron">
+        <h2>Contact us</h2>
+        <form name="userTicket" novalidate ng-submit="ctrl.save(ticket)" ng-show="!ctrl.error && !ctrl.success">
+            <div class="form-group">
+                <label for="user-name">Your name:</label>
+                <input name="userName" type="text" required max="255" class="form-control" id="user-name" ng-model="ticket.userName">
+            </div>
+            <div class="form-group">
+                <label for="user-email">Your email:</label>
+                <input name="userEmail" type="email" required max="255" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" class="form-control" id="user-email" ng-model="ticket.userEmail">
+            </div>
+            <div class="form-group">
+                <label for="user-message">Your message:</label>
+                <textarea name="userMessage" required min="3" class="form-control" rows="5" id="user-message" ng-model="ticket.message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-disabled="userTicket.$invalid || ctrl.submitting">
+                <span ng-show="!ctrl.submitting">Submit</span>
+                <span ng-show="ctrl.submitting">Submitting...</span>
+            </button>
+        </form>
+        <div ng-show="ctrl.error">
+            <div class="alert alert-danger">
+                <strong>Failed!</strong> Please try again or contact support.
+            </div>
+            <button class="btn btn-primary" ng-click="ctrl.retry()">Try again</button>
+        </div>
+        <div ng-show="ctrl.success">
+            <div class="alert alert-success">
+                <strong>Success!</strong> Your message has been sent. Thank you.
+            </div>
+        </div>
+    </div>
+
+</div>

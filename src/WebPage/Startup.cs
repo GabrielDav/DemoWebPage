@@ -69,7 +69,8 @@ namespace WebPage
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging")).AddDebug();
             
-            loggerFactory.AddDebug();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseMvc();
 
@@ -80,6 +81,8 @@ namespace WebPage
                 // Only for demo purposes
                 var context = new DataContext(Configuration.GetSection("Database")["DbName"]);
                 context.Database.EnsureCreated();
+
+                app.UseDeveloperExceptionPage();
             }
         }
     }

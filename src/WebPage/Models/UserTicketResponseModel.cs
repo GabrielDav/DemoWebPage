@@ -1,13 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace BusinessLogic.DTO
+namespace WebPage.Models
 {
-    public class UserTicket
+    public class UserTicketResponseModel
     {
         public string UserEmail { get; set; }
-
+        
         public string UserName { get; set; }
-
+        
         public string Message { get; set; }
 
         public DateTime Time { get; set; }

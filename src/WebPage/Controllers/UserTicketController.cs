@@ -26,27 +26,27 @@ namespace WebPage.Controllers
                 throw new ArgumentNullException(nameof(logger));
             _logger = logger;
         }
-        
+
         /// <summary>
         /// Returns all user tickets
         /// </summary>
-        /// <returns>UserTickets[]</returns>
+        /// <returns>UserTicketResponseModel[]</returns>
         [HttpGet]
         public async Task<ActionResult> GetTickets()
         {
             _logger.LogDebug("Executing GET api/tickets");
             var response = await _service.GetAllTicketsAsync();
             _logger.LogDebug($"GetTickets returned {response.Result}");
-            return ServiceResult<UserTicket[], UserTicketModel[]>(response);
+            return ServiceResult<UserTicket[], UserTicketResponseModel[]>(response);
         }
-        
+
         /// <summary>
         /// Saves new user ticket into database
         /// </summary>
-        /// <param name="model">UserTicket model</param>
+        /// <param name="model">UserTicketRequestModel</param>
         /// <returns>200 on Success</returns>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody]UserTicketModel model)
+        public async Task<ActionResult> Post([FromBody]UserTicketRequestModel model)
         {
             _logger.LogDebug("Executing POST api/tickets");
             if (!ModelState.IsValid)
